@@ -13,7 +13,11 @@ public class JsonPlaceHolderBaseUrl {
 
     @Before //Her @Test method'u öncesi çalışır
     public void setUp() {
-        spec = new RequestSpecBuilder().setBaseUri("https://jsonplaceholder.typicode.com/").setAccept(ContentType.JSON).build();
+        spec = new RequestSpecBuilder()
+                .setContentType(ContentType.JSON)
+                .setBaseUri("https://jsonplaceholder.typicode.com/")
+                .setAccept(ContentType.JSON)
+                .build();
     }
 
 }
