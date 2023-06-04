@@ -13,6 +13,6 @@ public class HerOkuAppBaseUrl {
 
     @Before //Her @Test method'u öncesi çalışır
     public void setUp() {
-        spec = new RequestSpecBuilder().setBaseUri("https://restful-booker.herokuapp.com/").build();
+        spec = new RequestSpecBuilder().setContentType(ContentType.JSON).setBaseUri("https://restful-booker.herokuapp.com/").build();
     }
 }
