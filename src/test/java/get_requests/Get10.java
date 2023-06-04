@@ -51,7 +51,7 @@ public class Get10 extends GoRestBaseUrl {
                         "meta.pagination.links.current", equalTo("https://gorest.co.in/public/v1/users?page=1"),
                         "data", hasSize(10),
                         "data.status", hasItem("active"),
-                        "data.name", hasItems("Bhushan Ahluwalia", "Suresh Acharya Ret.", "Krishna Dutta"));
+                        "data.name", hasItems("Udai Gandhi", "Himadri Acharya", "Agrata Talwar"));
 
         //The female users are less than or equals to male users
         //Kadın ve erkek sayılarını karşılaştıralım:
@@ -69,9 +69,17 @@ public class Get10 extends GoRestBaseUrl {
 
         System.out.println("kadinSayisi = " + kadinSayisi);
         assertTrue(kadinSayisi <= genderList.size() - kadinSayisi);
+
+
+        //2. Yol: Groovy
+        //Groovy kullanarak list içerisindeki kadın kullanıcı elementlerini filteleyerek kadın kullanıcı sayısı bulduk.
+        int kadinSayisiGroovy = jsonPath.getList("data.findAll{it.gender=='female'}").size();
+        System.out.println("kadinSayisiGroovy = " + kadinSayisiGroovy);
+
+        //Groovy kullanarak list içerisindeki erkek kullanıcı elementlerini filteleyerek erkek kullanıcı sayısı bulduk.
+        int erkekSayisiGroovy = jsonPath.getList("data.findAll{it.gender=='male'}").size();
+        System.out.println("erkekSayisiGroovy = " + erkekSayisiGroovy);
+
+        assertTrue(kadinSayisiGroovy <= erkekSayisiGroovy);
     }
-
-    //2. Yol: Groovy
-
-
 }
