@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Api129NT" />
+        <module name="Api129DT" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Api129NT" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
